@@ -1,8 +1,24 @@
+const kandidaten = [
+    {
+        "category": "americain",
+        "butcher": "Keurslager Danny & Inge",
+        "butcherAddress": "Gontrode Heirweg 10<br/>9820 Merelbeke",
+        "sponsor": "Blockeel",
+        "meat": "Rund",
+        "rank": { "vak": 0, "volk": 0 }
+    }
+    , {
+        "category": "chef",
+        "butcher": "Keurslager Danny & Inge",
+        "butcherAddress": "Gontrode Heirweg 10<br/>9820 Merelbeke",
+        "sponsor": "Blockeel",
+        "meat": "Rund, Varken",
+        "rank": { "vak": 0, "volk": 0 }
+    }
+];
+
 $(document).ready(function () {
 
-    // FETCHING DATA FROM JSON FILE 
-
-    $.getJSON( "kandidaten.json", function( kandidaten ) {
 
         const americainKandidaten = document.getElementById("americain-kandidaten");
         const chefKandidaten = document.getElementById("chef-kandidaten");
@@ -91,5 +107,5 @@ $(document).ready(function () {
                 }
             }
         });
-    });
+    
 }); 
