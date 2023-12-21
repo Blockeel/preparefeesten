@@ -1,7 +1,8 @@
 $(document).ready(function () {
 
     // FETCHING DATA FROM JSON FILE 
-    $.getJSON("./kandidaten.json", function (kandidaten) {
+
+    $.getJSON( "kandidaten.json", function( kandidaten ) {
 
         const americainKandidaten = document.getElementById("americain-kandidaten");
         const chefKandidaten = document.getElementById("chef-kandidaten");
