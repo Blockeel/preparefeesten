@@ -11,8 +11,8 @@ const kandidaten = [
     { "category": "americain", "butcher": "Slagerij Mortier", "butcherAddress": "Camille van der Cruyssenstraat 43<br/>9850 Nevele", "sponsor": "Tomas", "meat": "Rund", "rank": { "vak": 0, "volk": 0 } },
     { "category": "americain", "butcher": "Slagerij Van De Casteele", "butcherAddress": "Frans van Ryhovelaan 226<br/>9000 Gent", "sponsor": "Wannes", "meat": "Rund", "rank": { "vak": 0, "volk": 0 } },
     { "category": "americain", "butcher": "Boucherie Mazure", "butcherAddress": "Kapellestraat 4<br/>8400 Oostende", "sponsor": "Jwif", "meat": "Rund", "rank": { "vak": 0, "volk": 0 } },
-    { "category": "americain", "butcher": "Cru", "butcherAddress": "Kouter 177<br/>9000 Gent", "sponsor": "Finalist 2022", "meat": "Rund", "rank": { "vak": 0, "volk": 0 } },
-    { "category": "americain", "butcher": "Keurslager Somers", "butcherAddress": "Heuvelstraat 104<br/>2530 Boechout", "sponsor": "Finalist 2022", "meat": "Rund", "rank": { "vak": 0, "volk": 0 } },
+    { "category": "americain", "butcher": "Cru", "butcherAddress": "Kouter 177<br/>9000 Gent", "sponsor": "Finalist 2022<br/>Genomineerd door Stephanne", "meat": "Rund", "rank": { "vak": 0, "volk": 0 } },
+    { "category": "americain", "butcher": "Keurslager Somers", "butcherAddress": "Heuvelstraat 104<br/>2530 Boechout", "sponsor": "Finalist 2022<br/>Genomineerd door Peter Goossens", "meat": "Rund", "rank": { "vak": 0, "volk": 0 } },
 
     { "category": "chef", "butcher": "Renmans Berg", "butcherAddress": "Kutsegemstraat 47<br/> 1910 Kampenhout", "sponsor": "Bas", "meat": "", "rank": { "vak": 0, "volk": 0 } },
     { "category": "chef", "butcher": "Broodjeszaak 't Smoske", "butcherAddress": "Haachtsesteenweg 22<br/>1910 Kampenhout", "sponsor": "Bas", "meat": "", "rank": { "vak": 0, "volk": 0 } },
@@ -28,7 +28,7 @@ const kandidaten = [
     { "category": "chef", "butcher": "Mystery Nomination", "butcherAddress": "", "sponsor": "Ulysse", "meat": "", "rank": { "vak": 0, "volk": 0 } },
     { "category": "chef", "butcher": "Beenhouwerij Cornelissen", "butcherAddress": "Wolvertemsesteenweg 93<br/>1850 Grimbergen", "sponsor": "Wannes", "meat": "", "rank": { "vak": 0, "volk": 0 } },
     { "category": "chef", "butcher": "Bakkerij Vanderveken", "butcherAddress": "Tervuursesteenweg 159/N227, 1820 Perk", "sponsor": "Charlotte", "meat": "", "rank": { "vak": 0, "volk": 0 } },
-    { "category": "chef", "butcher": "Keurslager Somers", "butcherAddress": "Heuvelstraat 104<br/>2530 Boechout", "sponsor": "Finalist 2022", "meat": "", "rank": { "vak": 0, "volk": 0 } }
+    { "category": "chef", "butcher": "Keurslager Somers", "butcherAddress": "Heuvelstraat 104<br/>2530 Boechout", "sponsor": "Finalist 2022<br/>Genomineerd door Peter Goossens", "meat": "", "rank": { "vak": 0, "volk": 0 } }
 ];
 
 $(document).ready(function () {
