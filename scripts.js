@@ -17,7 +17,7 @@ const kandidaten = [
     { "category": "chef", "butcher": "Renmans Berg", "butcherAddress": "Kutsegemstraat 47<br/> 1910 Kampenhout", "sponsor": "Bas", "meat": "", "rank": { "vak": 0, "volk": 0 } },
     { "category": "chef", "butcher": "Broodjeszaak 't Smoske", "butcherAddress": "Haachtsesteenweg 22<br/>1910 Kampenhout", "sponsor": "Bas", "meat": "", "rank": { "vak": 0, "volk": 0 } },
     { "category": "chef", "butcher": "Eigen Creatie", "butcherAddress": "", "sponsor": "Beno", "meat": "", "rank": { "vak": 0, "volk": 0 } },
-    { "category": "chef", "butcher": "Keurslager Danny & Inge", "butcherAddress": "Gontrode Heirweg 10<br/>9820 Merelbeke", "sponsor": "Blockeel", "meat": "Rund", "rank": { "vak": 0, "volk": 0 } },
+    { "category": "chef", "butcher": "Keurslager Danny & Inge", "butcherAddress": "Gontrode Heirweg 10<br/>9820 Merelbeke", "sponsor": "Blockeel", "meat": "", "rank": { "vak": 0, "volk": 0 } },
     { "category": "chef", "butcher": "Bakkerij Mertens", "butcherAddress": "Lourdesstraat 73<br/>9041 Gent", "sponsor": "Bram", "meat": "", "rank": { "vak": 0, "volk": 0 } },
     { "category": "chef", "butcher": "Slagerij Abel", "butcherAddress": "Ledebergstraat 6/420<br/> 9050 Ledeberg", "sponsor": "Chris", "meat": "", "rank": { "vak": 0, "volk": 0 } },
     { "category": "chef", "butcher": "Slagerij De Koepoort", "butcherAddress": "Bruulstraat 59<br/>9450 Haaltert", "sponsor": "Gitti", "meat": "", "rank": { "vak": 0, "volk": 0 } },
