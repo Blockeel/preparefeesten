@@ -20,8 +20,7 @@ body {
 }
 
 header {
-    width: 100%;
-    max-width: 950px;
+    max-width: 1000px;
     margin: 30px auto 15px auto;
     text-align: center;
     text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(255, 255, 255, 0.8);
@@ -30,7 +29,7 @@ header {
 }
 
 .content {
-    max-width: 950px;
+    max-width: 1050px;
     margin: auto;
 }
 
@@ -54,8 +53,8 @@ h6 {
 
 .list-container {
     flex-direction: column;
-    max-width: 420px;
-    padding: 15px 35px 8px;
+    /* max-width: 420px; */
+    padding: 15px 25px 8px;
     margin: auto 15px;
     border: 1px solid #eee;
     box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.06);
@@ -72,6 +71,7 @@ li {
     margin-top: 10px;
     position: relative;
     line-height: 20px;
+    break-inside: avoid-column;
 }
 
 ol>li:before {
@@ -109,8 +109,15 @@ ul {
     padding: 0;
 }
 
+ul.butchers {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+
 ul.butchers>li {
     padding-left: var(--icon-space);
+    min-width: 250px;
 }
 
 ul.butchers>li:not(:first-child) {
@@ -126,7 +133,7 @@ ul.butchers>li:before {
     width: var(--icon-space);
 }
 
-ul.butchers>li:not(:last-child):after{
+/* ul.butchers>li:not(:last-child):before{
     content:'';
     position:absolute;
     display:block;
@@ -138,7 +145,7 @@ ul.butchers>li:not(:last-child):after{
     z-index:1;
     transform:translateX(-50%);
     -webkit-transform:translateX(-50%);
-  }
+  } */
 
 li.icon {
     padding-left: var(--icon-space);

@@ -37,44 +37,45 @@ $(document).ready(function () {
         const americainKandidaten = document.getElementById("americain-kandidaten");
         const chefKandidaten = document.getElementById("chef-kandidaten");
 
-        //filter
-        var VakResultsAmericain = kandidaten.filter(function (item) {
-            return item.rank.vak > 0 && item.category === 'americain'
-        });
-        var VakResultsAmericain = VakResultsAmericain.sort(function (a, b) {
-            return a.rank.vak - b.rank.vak
-        });
-        var VolkResultsAmericain = kandidaten.filter(function (item) {
-            return item.rank.volk > 0 && item.category === 'americain'
-        });
-        var VolkResultsAmericain = VolkResultsAmericain.sort(function (a, b) {
-            return a.rank.volk - b.rank.volk
-        });
-        var VakResultsChef = kandidaten.filter(function (item) {
-            return item.rank.vak > 0 && item.category === 'chef'
-        });
-        var VakResultsChef = VakResultsChef.sort(function (a, b) {
-            return a.rank.vak - b.rank.vak
-        });
-        var VolkResultsChef = kandidaten.filter(function (item) {
-            return item.rank.volk > 0 && item.category === 'chef'
-        });
-        var VolkResultsChef = VolkResultsChef.sort(function (a, b) {
-            return a.rank.volk - b.rank.volk
+        var Americains = kandidaten.filter(function (item) {
+            return item.category === 'americain'
         });
 
-        console.log(VakResultsAmericain);
-        console.log(VolkResultsAmericain);
-        console.log(VakResultsChef);
-        console.log(VolkResultsChef);
+        var Chefs = kandidaten.filter(function (item) {
+            return item.category === 'chef'
+        });
 
-        if (VakResultsAmericain.length > 0 || VakResultsChef.length > 0) { document.getElementById('resultsVak').style.display = "block"; }
-        if (VolkResultsAmericain.length > 0 || VolkResultsChef.length > 0) { document.getElementById('resultsVolk').style.display = "block"; }
 
-        listTopAndInsert(VakResultsAmericain, 'resultsVakAmericain');
-        listTopAndInsert(VakResultsChef, 'resultsVakChef');
-        listTopAndInsert(VolkResultsAmericain, 'resultsVolkAmericain');
-        listTopAndInsert(VolkResultsChef, 'resultsVolkChef');
+        function FilterAndOrder(relevantArray, relevantCategory, relevantJury, order) {
+            var results = relevantArray.filter(function (item) {
+                return item.category === relevantCategory
+            });
+
+            if (relevantJury) { 
+                var results = results.filter(function (item) {
+                    return item.rank[relevantJury] > 0
+                });                
+            }
+
+
+            if ((order === "asc" || order == null) && relevantJury) {
+                results = results.sort(function (a, b) {
+                    return a.rank.vak - b.rank.vak
+                });
+            }  else if (order === "desc" && relevantJury) {
+                results = results.sort(function (a, b) {
+                    return b.rank.vak - a.rank.vak
+                });                    
+            } else {
+                results = results.sort(function (a, b) {
+                    return 0.5 - Math.random()
+                }); 
+            }  
+
+
+            return results
+                
+        }
 
         function listTopAndInsert(relevantArray, relevantContainer) {
             $.each(relevantArray, function (key, value) {
@@ -93,6 +94,51 @@ $(document).ready(function () {
             });
 
         }
+
+        var resultsVakAmericain = FilterAndOrder(kandidaten, 'americain', 'vak');
+        var resultsVakAmericainDesc = FilterAndOrder(kandidaten, 'americain', 'vak', 'desc');
+
+        var Americains = FilterAndOrder(kandidaten, 'americain');
+
+        console.log(resultsVakAmericain);
+
+        console.log(resultsVakAmericainDesc);
+
+        console.log(Americains);
+
+        //filter
+        var VakResultsAmericain = kandidaten.filter(function (item) {
+            return item.rank.vak > 0
+        });
+        var VakResultsAmericain = VakResultsAmericain.sort(function (a, b) {
+            return a.rank.vak - b.rank.vak
+        });
+        var VolkResultsAmericain = kandidaten.filter(function (item) {
+            return item.rank.volk > 0
+        });
+        var VolkResultsAmericain = VolkResultsAmericain.sort(function (a, b) {
+            return a.rank.volk - b.rank.volk
+        });
+        var VakResultsChef = kandidaten.filter(function (item) {
+            return item.rank.vak > 0 && item.category === 'chef'
+        });
+        var VakResultsChef = VakResultsChef.sort(function (a, b) {
+            return a.rank.vak - b.rank.vak
+        });
+        var VolkResultsChef = kandidaten.filter(function (item) {
+            return item.rank.volk > 0 && item.category === 'chef'
+        });
+        var VolkResultsChef = VolkResultsChef.sort(function (a, b) {
+            return a.rank.volk - b.rank.volk
+        });
+
+        if (VakResultsAmericain.length > 0 || VakResultsChef.length > 0) { document.getElementById('resultsVak').style.display = "block"; }
+        if (VolkResultsAmericain.length > 0 || VolkResultsChef.length > 0) { document.getElementById('resultsVolk').style.display = "block"; }
+
+        listTopAndInsert(VakResultsAmericain, 'resultsVakAmericain');
+        listTopAndInsert(VakResultsChef, 'resultsVakChef');
+        listTopAndInsert(VolkResultsAmericain, 'resultsVolkAmericain');
+        listTopAndInsert(VolkResultsChef, 'resultsVolkChef');
 
         $.each(kandidaten, function (key, value) {
 
