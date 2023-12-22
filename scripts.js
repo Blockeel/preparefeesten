@@ -83,7 +83,7 @@ $(document).ready(function () {
                 tempInfo += '<strong>' + value.butcher + '</strong>';
                 tempInfo += '<ul class="butcherDetails">';
                 if (value.butcherAddress) { tempInfo += '<li class="icon location">' + value.butcherAddress + '</li>'; }
-                if (value.meat) { tempInfo += '<li class="icon meat">' + value.meat + '</li>'; }
+                if (value.meat && value.category==='chef') { tempInfo += '<li class="icon meat">' + value.meat + '</li>'; }
                 if (value.sponsor) { tempInfo += '<li>genomineerd door ' + value.sponsor + '</li>'; }
                 tempInfo += '</ul>';
                 tempInfo += '</li>';
@@ -103,7 +103,7 @@ $(document).ready(function () {
                 tempInfo += '<strong>' + value.butcher + '</strong>';
                 tempInfo += '<ul class="butcherDetails">';
                 if (value.butcherAddress) { tempInfo += '<li class="icon location">' + value.butcherAddress + '</li>'; }
-                if (value.meat) { tempInfo += '<li class="icon meat">' + value.meat + '</li>'; }
+                if (value.meat && value.category==='chef') { tempInfo += '<li class="icon meat">' + value.meat + '</li>'; }
                 if (value.sponsor) { tempInfo += '<li>genomineerd door ' + value.sponsor + '</li>'; }
                 tempInfo += '</ul>';
                 tempInfo += '</li>';
