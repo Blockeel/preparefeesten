@@ -87,8 +87,9 @@ $(document).ready(function () {
             tempInfo += '</ul>';
             tempInfo += '</li>';
 
+            document.getElementById(relevantContainer).style.display = "block";
 
-            document.getElementById(relevantContainer).innerHTML += tempInfo;
+            document.getElementById(relevantContainer).getElementsByTagName( 'ol' )[0].innerHTML += tempInfo;
         });
 
     }
