@@ -33,20 +33,15 @@ const kandidaten = [
 
 $(document).ready(function () {
 
+    FilterOrderAndInsert(kandidaten, 'americain', 'americain-kandidaten')
+    FilterOrderAndInsert(kandidaten, 'chef', 'chef-kandidaten')
 
-    const americainKandidaten = document.getElementById("americain-kandidaten");
-    const chefKandidaten = document.getElementById("chef-kandidaten");
+    FilterOrderAndInsert(kandidaten, 'americain', 'resultsVakAmericain', 'vak')
+    FilterOrderAndInsert(kandidaten, 'chef', 'resultsVakChef', 'vak')
+    FilterOrderAndInsert(kandidaten, 'americain', 'resultsVolkAmericain', 'volk')
+    FilterOrderAndInsert(kandidaten, 'chef', 'resultsVolkChef', 'volk')
 
-    var Americains = kandidaten.filter(function (item) {
-        return item.category === 'americain'
-    });
-
-    var Chefs = kandidaten.filter(function (item) {
-        return item.category === 'chef'
-    });
-
-
-    function FilterAndOrder(relevantArray, relevantCategory, relevantJury, order) {
+    function FilterOrderAndInsert(relevantArray, relevantCategory, relevantContainer, relevantJury, order) {
         var results = relevantArray.filter(function (item) {
             return item.category === relevantCategory
         });
@@ -71,12 +66,8 @@ $(document).ready(function () {
             });
         }
 
-        return results
-
-    }
-
-    function listTopAndInsert(relevantArray, relevantContainer) {
-        $.each(relevantArray, function (key, value) {
+        var newList = ''
+        $.each(results, function (key, value) {
             var tempInfo = ''
             tempInfo += '<li>';
             tempInfo += '<strong>' + value.butcher + '</strong>';
@@ -87,64 +78,26 @@ $(document).ready(function () {
             tempInfo += '</ul>';
             tempInfo += '</li>';
 
-            document.getElementById(relevantContainer).style.display = "block";
+            newList += tempInfo;
 
-            document.getElementById(relevantContainer).getElementsByTagName( 'ol' )[0].innerHTML += tempInfo;
         });
 
-    }
+        if (newList) {
+            document.getElementById(relevantContainer).style.display = "block";
 
-    var resultsVakAmericain = FilterAndOrder(kandidaten, 'americain', 'vak');
-    var resultsVakAmericainDesc = FilterAndOrder(kandidaten, 'americain', 'vak', 'desc');
-
-    var Americains = FilterAndOrder(kandidaten, 'americain');
-
-    console.log(resultsVakAmericain);
-
-    console.log(resultsVakAmericainDesc);
-
-    console.log(Americains);
-
-    //filter
-    var VakResultsAmericain = FilterAndOrder(kandidaten, 'americain', 'vak');
-    var VolkResultsAmericain = FilterAndOrder(kandidaten, 'americain', 'volk');
-    var VakResultsChef = FilterAndOrder(kandidaten, 'chef', 'vak');
-    var VolkResultsChef = FilterAndOrder(kandidaten, 'chef', 'volk');
-
-    if (VakResultsAmericain.length > 0 || VakResultsChef.length > 0) { document.getElementById('resultsVak').style.display = "block"; }
-    if (VolkResultsAmericain.length > 0 || VolkResultsChef.length > 0) { document.getElementById('resultsVolk').style.display = "block"; }
-
-    listTopAndInsert(VakResultsAmericain, 'resultsVakAmericain');
-    listTopAndInsert(VakResultsChef, 'resultsVakChef');
-    listTopAndInsert(VolkResultsAmericain, 'resultsVolkAmericain');
-    listTopAndInsert(VolkResultsChef, 'resultsVolkChef');
-
-    $.each(kandidaten, function (key, value) {
-
-        if (value.butcher || value.butcherAddress) {
-
-            var tempInfo = ''
-            tempInfo += '<li>';
-            tempInfo += '<strong>' + value.butcher + '</strong>';
-            tempInfo += '<ul class="butcherDetails">';
-            if (value.butcherAddress) { tempInfo += '<li class="icon location">' + value.butcherAddress + '</li>'; }
-            if (value.meat && value.category === 'chef') { tempInfo += '<li class="icon meat">' + value.meat + '</li>'; }
-            if (value.sponsor && value.sponsor != 'Finalist 2022') { tempInfo += '<li>genomineerd door ' + value.sponsor + '</li>'; } else { tempInfo += '<li>' + value.sponsor + '</li>'; }
-            tempInfo += '</ul>';
-            tempInfo += '</li>';
-
-            switch (value.category) {
-                case 'americain':
-                    americainKandidaten.innerHTML += tempInfo;
-                    break;
-                case 'chef':
-                    chefKandidaten.innerHTML += tempInfo;
-                    break;
-                default:
-                    console.log('category ' + value.category + 'not valid')
-
+            if (document.getElementById(relevantContainer).closest('.results.hidden')) {
+                document.getElementById(relevantContainer).closest('.results.hidden').style.display = "block";
             }
         }
-    });
+
+        if (relevantJury) {
+            newList = '<ol class="alternating-colors butchers">' + newList + '</ol>'
+            document.getElementById(relevantContainer).innerHTML += newList;
+        } else {
+            newList = '<ul class="butchers">' + newList + '</ul>'
+            document.getElementById(relevantContainer).innerHTML += newList;
+        }
+
+    }
 
 }); 
