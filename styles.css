@@ -55,7 +55,7 @@ h6 {
 .list-container {
     flex-direction: column;
     max-width: 420px;
-    padding: 32px;
+    padding: 15px 35px 8px;
     margin: auto 15px;
     border: 1px solid #eee;
     box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.06);
@@ -111,7 +111,10 @@ ul {
 
 ul.butchers>li {
     padding-left: var(--icon-space);
-    margin-bottom: 20px;
+}
+
+ul.butchers>li:not(:first-child) {
+    margin-top: 25px;
 }
 
 ul.butchers>li:before {
@@ -122,6 +125,20 @@ ul.butchers>li:before {
     margin-left: calc(var(--icon-space) * -1);
     width: var(--icon-space);
 }
+
+ul.butchers>li:not(:last-child):after{
+    content:'';
+    position:absolute;
+    display:block;
+    bottom:-12px;
+    height:1px;
+    width: 90%;
+    background:#000;
+    left:50%;
+    z-index:1;
+    transform:translateX(-50%);
+    -webkit-transform:translateX(-50%);
+  }
 
 li.icon {
     padding-left: var(--icon-space);
