@@ -81,21 +81,23 @@ $(document).ready(function () {
             newList += tempInfo;
 
         });
-
-        if (newList) {
-            document.getElementById(relevantContainer).style.display = "block";
-
-            if (document.getElementById(relevantContainer).closest('.results.hidden')) {
-                document.getElementById(relevantContainer).closest('.results.hidden').style.display = "block";
+        
+        if (relevantContainer) {
+            if (newList) {
+                document.getElementById(relevantContainer).style.display = "block";
+    
+                if (document.getElementById(relevantContainer).closest('.results.hidden')) {
+                    document.getElementById(relevantContainer).closest('.results.hidden').style.display = "block";
+                }
             }
-        }
-
-        if (relevantJury) {
-            newList = '<ol class="alternating-colors butchers">' + newList + '</ol>'
-            document.getElementById(relevantContainer).innerHTML += newList;
-        } else {
-            newList = '<ul class="butchers">' + newList + '</ul>'
-            document.getElementById(relevantContainer).innerHTML += newList;
+    
+            if (relevantJury) {
+                newList = '<ol class="alternating-colors butchers">' + newList + '</ol>'
+                document.getElementById(relevantContainer).innerHTML += newList;
+            } else {
+                newList = '<ul class="butchers">' + newList + '</ul>'
+                document.getElementById(relevantContainer).innerHTML += newList;
+            }
         }
 
     }
