@@ -134,10 +134,7 @@ li.meat:before {
     content: "\f6d7";
 }
 
-ul.butcherDetails > li {
-    font-size: 14px;
-    line-height: 16px;
-}
+
 
 .hidden {
     display: none;
