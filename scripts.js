@@ -74,7 +74,7 @@ $(document).ready(function () {
             tempInfo += '<ul class="butcherDetails">';
             if (value.butcherAddress) { tempInfo += '<li class="icon location">' + value.butcherAddress + '</li>'; }
             if (value.meat && value.category === 'chef') { tempInfo += '<li class="icon meat">' + value.meat + '</li>'; }
-            if (value.sponsor && value.sponsor != 'Finalist 2022') { tempInfo += '<li>genomineerd door ' + value.sponsor + '</li>'; } else { tempInfo += '<li>' + value.sponsor + '</li>'; }
+            if (value.sponsor && value.sponsor != 'Finalist 2022') { tempInfo += '<li style="font-size:14px;">genomineerd door ' + value.sponsor + '</li>'; } else { tempInfo += '<li style="font-size:14px;">' + value.sponsor + '</li>'; }
             tempInfo += '</ul>';
             tempInfo += '</li>';
 
