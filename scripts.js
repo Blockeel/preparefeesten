@@ -70,11 +70,11 @@ $(document).ready(function () {
         $.each(results, function (key, value) {
             var tempInfo = ''
             tempInfo += '<li>';
-            tempInfo += '<strong>' + value.butcher + '</strong>';
+            tempInfo += '<strong style="font-size:1.15em;">' + value.butcher + '</strong>';
             tempInfo += '<ul class="butcherDetails">';
             if (value.butcherAddress) { tempInfo += '<li class="icon location">' + value.butcherAddress + '</li>'; }
             if (value.meat && value.category === 'chef') { tempInfo += '<li class="icon meat">' + value.meat + '</li>'; }
-            if (value.sponsor && value.sponsor != 'Finalist 2022') { tempInfo += '<li style="font-size:14px;">genomineerd door ' + value.sponsor + '</li>'; } else { tempInfo += '<li style="font-size:14px;">' + value.sponsor + '</li>'; }
+            if (value.sponsor && !value.sponsor.startsWith("Finalist ") ) { tempInfo += '<li style="font-size:0.8em;">genomineerd door ' + value.sponsor + '</li>'; } else { tempInfo += '<li style="font-size:0.8em">' + value.sponsor + '</li>'; }
             tempInfo += '</ul>';
             tempInfo += '</li>';
 
